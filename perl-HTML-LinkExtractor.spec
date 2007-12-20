@@ -16,6 +16,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl-HTML-TokeParser-Simple
 BuildRequires:	perl-URI
 BuildArch: 	noarch
+BuildRoot: 	%{_tmppath}/%{name}-buildroot/
 Requires: 	perl
 
 %description
