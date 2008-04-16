@@ -1,7 +1,7 @@
 %define name perl-HTML-LinkExtractor
 %define real_name HTML-LinkExtractor
-%define version 0.13
-%define release %mkrel 2
+%define version 0.130
+%define release %mkrel 1
 
 Summary: 	Perl extension for extracting links from HTML
 
