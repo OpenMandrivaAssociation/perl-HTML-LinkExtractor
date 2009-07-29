@@ -1,23 +1,20 @@
-%define name perl-HTML-LinkExtractor
-%define real_name HTML-LinkExtractor
-%define version 0.130
-%define release %mkrel 3
+%define upstream_name    HTML-LinkExtractor
+%define upstream_version 0.13
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary: 	Perl extension for extracting links from HTML
-
-Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
-License: 	GPL or Artistic
+License: 	GPL+ or Artistic
 Group: 		Development/Perl
-Source: 	http://search.cpan.org/CPAN/authors/id/R/RA/RADOS/%{real_name}-%{version}.tar.bz2
-Url: 		http://search.cpan.org/dist/%{real_name}/
-BuildRequires:	perl-devel
+Url: 		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/R/RA/RADOS/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:	perl-HTML-TokeParser-Simple
 BuildRequires:	perl-URI
 BuildArch: 	noarch
-BuildRoot: 	%{_tmppath}/%{name}-buildroot/
-Requires: 	perl
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Perl extension for extracting links from HTML. It is very similar
@@ -25,7 +22,7 @@ to HTML::LinkExtor|HTML::LinkExtor, except that besides getting
 the URL, you also get the link-text.
 
 %prep
-%setup -q -n %{real_name}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix}
@@ -44,5 +41,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorlib}/HTML/LinkExtractor.pm
 %{_mandir}/*/*
-
-
